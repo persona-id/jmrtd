@@ -22,9 +22,11 @@ dependencies {
     implementation("net.sf.scuba:scuba-smartcards:0.0.19")
     implementation("org.bouncycastle:bcprov-jdk18on:1.72")
     implementation("org.bouncycastle:bcutil-jdk18on:1.72")
-    implementation("org.ejbca.cvc:cert-cvc:1.4.13")
+    implementation("org.ejbca.cvc:cert-cvc:1.4.13") {
+      // excluding this group since it causes build errors
+      exclude(group = "org.bouncycastle", module = "bcprov-jdk15on")
+    }
     testImplementation("junit:junit:4.13.2")
-    testImplementation("org.bouncycastle:bcpkix-jdk18on:1.72")
 }
 
 group = "org.jmrtd"
